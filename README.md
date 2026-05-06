@@ -48,32 +48,7 @@ The pipeline is organized into three layers:
 ## Project Structure
 
 
-data-warehouse-powerbi-project/
-│
-├── datasets/ # Raw datasets used for the project (ERP and CRM data)
-│
-├── docs/ # Project documentation and architecture details
-│ ├── etl.drawio # ETL processes and techniques
-│ ├── data_architecture.drawio # System architecture diagram
-│ ├── data_catalog.md # Dataset metadata and descriptions
-│ ├── data_flow.drawio # Data flow diagram
-│ ├── data_models.drawio # Data models (star schema)
-│ ├── naming-conventions.md # Naming standards
-│
-├── scripts/ # SQL scripts for ETL and transformations
-│ ├── bronze/ # Raw data ingestion scripts
-│ ├── silver/ # Data cleaning and transformation
-│ ├── gold/ # Analytical models (fact & dimension tables)
-│
-├── tests/ # Data quality and validation scripts
-│
-├── powerbi/ # Power BI files
-│ └── dashboard.pbix
-│
-├── README.md # Project documentation
-├── LICENSE # License information
-├── .gitignore # Git ignored files
-└── requirements.txt # Dependencies
+
 
 
 
