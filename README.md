@@ -41,18 +41,7 @@ The pipeline is organized into three layers:
 
 - SQL (data transformation and modeling)   
 - Data Warehousing (Star Schema)  
-- Power BI (visualization and dashboards)  
-
----
-
-## Project Structure
-
-
-
-
-
-
-
+- Power BI (visualization and dashboards) 
 
 ## Key Features
 
