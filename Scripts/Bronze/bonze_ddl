@@ -1,1 +1,62 @@
+Create DATABASE "Datawarehouse"
+USE "Datawarehouse"
+CREATE SCHEMA "Bronze"
+CREATE SCHEMA "Silver"
+CREATE SCHEMA "Gold"\
+--Table creation in bronze layer --
 
+Create Table "Bronze"."crm_cust_info"(
+cst_id INT,
+cst_key NVARCHAR(50),
+cst_firstname NVARCHAR(50),
+cst_lastname NVARCHAR(50),
+cast_material_status NVARCHAR(50),
+cast_gender NVARCHAR(50),
+cast_create_date DATE
+)
+
+CREATE Or REPLACE TABLE "Bronze"."crm_prd_info"(
+prd_id INT,
+prd_key NVARCHAR(50),
+prd_name NVARCHAR(50),
+prd_cost INT,
+prod_line NVARCHAR(50),
+prd_start_date DATE,
+prd_end_date DATE
+)
+CREATE TABLE "Bronze"."crm_sale_details"(
+sls_ord_num NVARCHAR(50),
+sls_prd_key NVARCHAR(50),
+sls_cust_id INT,
+sls_order_dt INT,
+sls_ship_dt INT,
+sls_due_dt INT,
+sls_sales INT,
+sls_quantity INT,
+sls_price INT
+)
+
+CREATE TABLE "Bronze"."erp_loc_a101"(
+cid NVARCHAR(50),
+cntry NVARCHAR(50)
+)
+CREATE TABLE "Bronze"."erp_cust_az12"(
+cid NVARCHAR(50),
+bdate DATE,
+gen NVARCHAR(50)
+)
+
+CREATE TABLE "Bronze"."erp_px_cat_g1v2"(
+id NVARCHAR(50),
+cat NVARCHAR(50),
+subcat NVARCHAR(50),
+maintenance NVARCHAR(50)
+)
+
+--verifying tables
+SELECT * From "Bronze"."crm_cust_info";
+SELECT * From "Bronze"."crm_prd_info";
+SELECT * From "Bronze"."crm_sale_details";
+SELECT * From "Bronze"."erp_loc_a101";
+SELECT * From "Bronze"."erp_cust_az12";
+SELECT * From "Bronze"."erp_px_cat_g1v2";
