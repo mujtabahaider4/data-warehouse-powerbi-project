@@ -1,4 +1,3 @@
-
 --create Dimensions --
 CREATE or replace VIEW "Gold"."dim_customers" AS
 Select
@@ -72,3 +71,57 @@ ON c.customer_key = f.customer_key
 LEFT JOIN "Gold"."dim_products" p 
 on p.product_key = f.product_key
 where p.product_key IS NULL
+
+
+
+-- POWERBI quries--
+
+CREATE OR REPLACE VIEW "Gold"."dim_date" AS
+SELECT DISTINCT
+    order_date AS full_date,
+    YEAR(order_date) AS year,
+    QUARTER(order_date) AS quarter,
+    MONTH(order_date) AS month,
+    MONTHNAME(order_date) AS month_name,
+    WEEK(order_date) AS week,
+    DAY(order_date) AS day,
+    DAYNAME(order_date) AS day_name
+FROM "Gold"."fact_sales";
+
+
+CREATE OR REPLACE VIEW "Gold"."agg_sales_product" AS
+SELECT
+    product_key,
+    SUM(sales_amount) AS total_sales,
+    SUM(quantity) AS total_quantity,
+    COUNT(order_number) AS total_orders
+FROM "Gold"."fact_sales"
+GROUP BY product_key;
+
+
+CREATE OR REPLACE VIEW "Gold"."agg_sales_customer" AS
+SELECT
+    customer_key,
+    SUM(sales_amount) AS total_sales,
+    SUM(quantity) AS total_quantity,
+    COUNT(order_number) AS total_orders
+FROM "Gold"."fact_sales"
+GROUP BY customer_key;
+
+CREATE OR REPLACE VIEW "Gold"."agg_sales_date" AS
+SELECT
+    order_date,
+    SUM(sales_amount) AS total_sales,
+    SUM(quantity) AS total_quantity,
+    COUNT(order_number) AS total_orders
+FROM "Gold"."fact_sales"
+GROUP BY order_date;
+
+
+SELECT * From "Gold"."dim_date"
+
+Select * From "Gold"."agg_sales_product"
+Select * From "Gold"."agg_sales_product"
+Select * From "Gold"."agg_sales_customer" 
+Select * From "Gold"."agg_sales_date"
+
