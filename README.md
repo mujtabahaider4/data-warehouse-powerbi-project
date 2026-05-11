@@ -74,3 +74,9 @@ The Gold layer is used as the data source for Power BI dashboards, enabling:
 ## Summary
 
 This project demonstrates the design and implementation of a modern data pipeline, covering ingestion, transformation, modeling, and visualization. It reflects practical data engineering concepts used in real-world systems.
+
+
+## DASHNORD OR DATAWAREHOUSE DATA ##
+
+<img width="933" height="539" alt="powerbi dashbord" src="https://github.com/user-attachments/assets/0a2987fb-042e-4687-b73f-ba8eeb2e98a5" />
+
